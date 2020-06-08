@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Validator;
+use App\Mail\ContactTeamEmail;
+use App\ContactForm\ContactForm;
 
 class ContactFormController extends Controller
 {
@@ -33,7 +35,21 @@ class ContactFormController extends Controller
 
         $validator = Validator::make($data, $rules);
         if($validator->passes()){
-            return response("Form has been processed successfully.", 200);
+            
+            //$contact_form = ContactForm::createFromValidator($validator);
+
+            try {
+                $contact_form = ContactForm::createFromValidator($validator);
+                Mail::to($validator->getData()['email'])->send(new ContactTeamEmail($contact_form));
+            } catch (\Throwable $th) {
+                return response($th,200);
+            }
+           
+
+            return response($validator->getData()['email'], 200);
+            
+
+
         }else{
             return response()->json($validator->errors()->all());
         }
