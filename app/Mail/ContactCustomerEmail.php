@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactTeamEmail extends Mailable
+class ContactCustomerEmail extends Mailable
 {
     use Queueable, SerializesModels;
     
@@ -30,9 +30,8 @@ class ContactTeamEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('info@srworld.sk', 'SR WORLD Web')
-                    ->subject('Web správa od '.$this->contact_form->getName())
-                    ->replyTo($this->contact_form->getEmail())
-                    ->view('emails.contactFormTeam');
+        return $this->from('info@srworld.sk', 'SR WORLD s.r.o.')
+                    ->subject('Potrvdenie správy')
+                    ->view('emails.contactFormCustomer');
     }
 }

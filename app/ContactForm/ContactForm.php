@@ -17,7 +17,7 @@ class ContactForm
 
     public static function createFromValidator(Validator $validator): ContactForm{
         $data = $validator->getData();
-        $instance = new self($data['first_name'].$data['last_name'], $data['email'], $data['message']);
+        $instance = new self($data['first_name']." ".$data['last_name'], $data['email'], $data['message']);
         return $instance;
     }
 

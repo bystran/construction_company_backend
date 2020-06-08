@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Validator;
+use App\Mail\ContactCustomerEmail;
 use App\Mail\ContactTeamEmail;
 use App\ContactForm\ContactForm;
 
@@ -36,11 +37,12 @@ class ContactFormController extends Controller
         $validator = Validator::make($data, $rules);
         if($validator->passes()){
             
-            //$contact_form = ContactForm::createFromValidator($validator);
+            $contact_form = ContactForm::createFromValidator($validator);
 
             try {
-                $contact_form = ContactForm::createFromValidator($validator);
-                Mail::to($validator->getData()['email'])->send(new ContactTeamEmail($contact_form));
+                
+                Mail::to($validator->getData()['email'])->send(new ContactCustomerEmail($contact_form));
+                Mail::to('info@srworld.sk')->send(new ContactTeamEmail($contact_form));
             } catch (\Throwable $th) {
                 return response($th,200);
             }
