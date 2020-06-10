@@ -40,9 +40,8 @@ class ContactFormController extends Controller
             $contact_form = ContactForm::createFromValidator($validator);
 
             try {
-                
-                Mail::to($validator->getData()['email'])->send(new ContactCustomerEmail($contact_form));
-                Mail::to('info@srworld.sk')->send(new ContactTeamEmail($contact_form));
+                Mail::to($validator->getData()['email'])->queue(new ContactCustomerEmail($contact_form));
+                Mail::to('info@srworld.sk')->queue(new ContactTeamEmail($contact_form));
             } catch (\Throwable $th) {
                 return response($th,200);
             }
