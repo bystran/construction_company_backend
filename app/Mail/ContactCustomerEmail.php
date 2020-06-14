@@ -30,7 +30,7 @@ class ContactCustomerEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('info@srworld.sk', 'SR WORLD s.r.o.')
+        return $this->from('dev@srworld.sk', 'SR WORLD s.r.o.')
                     ->subject('Potrvdenie správy')
                     ->view('emails.contactFormCustomer');
     }

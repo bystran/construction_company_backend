@@ -41,7 +41,7 @@ class ContactFormController extends Controller
 
             try {
                 Mail::to($validator->getData()['email'])->queue(new ContactCustomerEmail($contact_form));
-                Mail::to('info@srworld.sk')->queue(new ContactTeamEmail($contact_form));
+                Mail::to('dev@srworld.sk')->queue(new ContactTeamEmail($contact_form));
             } catch (\Throwable $th) {
                 parent::report($th);
                 
