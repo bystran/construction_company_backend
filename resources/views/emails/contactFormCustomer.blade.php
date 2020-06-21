@@ -350,7 +350,7 @@
           </tr>
           <tr>
             <td class="free-text">
-              <span>Náš tým si ju prezerá a bude Vás kontaktovať v najbližšej dobe.</span>
+              <span>Budeme Vás kontaktovať.</span>
             </td>
           </tr>
           <tr>
