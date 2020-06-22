@@ -32,7 +32,6 @@ class ContactFormController extends Controller
             'last_name'=>'required|alpha|max:50|min:2',
             'email'=>'required|email',
             'message'=>'required|min:10|max:500',
-            'checkbox' =>'accepted',
             'g-recaptcha-response' => 'required|captcha'
         ];
 
