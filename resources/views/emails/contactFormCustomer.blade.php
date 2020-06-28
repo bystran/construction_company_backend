@@ -391,7 +391,7 @@
   <tr>
     <td align="center" valign="top" width="100%" style="background-color: #ffffff;  border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;">
       <center>
-        <table cellpadding="0" cellspacing="0" width="600" class="w320">
+        <!-- <table cellpadding="0" cellspacing="0" width="600" class="w320">
           <tr>
             <td class="header-md" style="text-align:center;">
                 Pozrite si našu prácu!
@@ -445,7 +445,7 @@
               </table>
             </td>
           </tr>
-        </table>
+        </table> -->
       </center>
     </td>
   </tr>
