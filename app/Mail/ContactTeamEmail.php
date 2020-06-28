@@ -30,7 +30,7 @@ class ContactTeamEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('dev@srworld.sk', 'SR WORLD Web')
+        return $this->from('info@srworld.sk', 'SR WORLD Web')
                     ->subject('Web správa od '.$this->contact_form->getName())
                     ->replyTo($this->contact_form->getEmail())
                     ->view('emails.contactFormTeam');
